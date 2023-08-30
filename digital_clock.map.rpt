@@ -1,0 +1,1054 @@
+Analysis & Synthesis report for digital_clock
+Wed Aug 30 17:36:09 2023
+Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Port Connectivity Checks: "clock_sum:sum_min1"
+ 14. Port Connectivity Checks: "functs_select_mux:hexdisp6"
+ 15. Port Connectivity Checks: "functs_select_mux:hexdisp5"
+ 16. Port Connectivity Checks: "functs_select_mux:hexdisp4"
+ 17. Port Connectivity Checks: "functs_select_mux:hexdisp3"
+ 18. Port Connectivity Checks: "functs_select_mux:hexdisp2"
+ 19. Port Connectivity Checks: "functs_select_mux:hexdisp1"
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Aug 30 17:36:09 2023          ;
+; Quartus Prime Version              ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
+; Revision Name                      ; digital_clock                                  ;
+; Top-level Entity Name              ; digital_clock                                  ;
+; Family                             ; MAX 10                                         ;
+; Total logic elements               ; 507                                            ;
+;     Total combinational functions  ; 507                                            ;
+;     Dedicated logic registers      ; 122                                            ;
+; Total registers                    ; 122                                            ;
+; Total pins                         ; 64                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
+; UFM blocks                         ; 0                                              ;
+; ADC blocks                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; digital_clock      ; digital_clock      ;
+; Family name                                                      ; MAX 10 FPGA        ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                          ;
++----------------------------------+-----------------+-----------------------+--------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type             ; File Name with Absolute Path                                             ; Library ;
++----------------------------------+-----------------+-----------------------+--------------------------------------------------------------------------+---------+
+; int_sum.vhd                      ; yes             ; User VHDL File        ; C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd           ;         ;
+; digital_clock.vhd                ; yes             ; Auto-Found VHDL File  ; C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd     ;         ;
+; functs_select_mux.vhd            ; yes             ; Auto-Found VHDL File  ; C:/Users/EliteBook/Documents/Quartus/Digital Clock/functs_select_mux.vhd ;         ;
+; functs_switch.vhd                ; yes             ; Auto-Found VHDL File  ; C:/Users/EliteBook/Documents/Quartus/Digital Clock/functs_switch.vhd     ;         ;
++----------------------------------+-----------------+-----------------------+--------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++---------------------------------------------+----------+
+; Resource                                    ; Usage    ;
++---------------------------------------------+----------+
+; Estimated Total logic elements              ; 507      ;
+;                                             ;          ;
+; Total combinational functions               ; 507      ;
+; Logic element usage by number of LUT inputs ;          ;
+;     -- 4 input functions                    ; 181      ;
+;     -- 3 input functions                    ; 230      ;
+;     -- <=2 input functions                  ; 96       ;
+;                                             ;          ;
+; Logic elements by mode                      ;          ;
+;     -- normal mode                          ; 420      ;
+;     -- arithmetic mode                      ; 87       ;
+;                                             ;          ;
+; Total registers                             ; 122      ;
+;     -- Dedicated logic registers            ; 122      ;
+;     -- I/O registers                        ; 0        ;
+;                                             ;          ;
+; I/O pins                                    ; 64       ;
+;                                             ;          ;
+; Embedded Multiplier 9-bit elements          ; 0        ;
+;                                             ;          ;
+; Maximum fan-out node                        ; Equal6~0 ;
+; Maximum fan-out                             ; 267      ;
+; Total fan-out                               ; 2187     ;
+; Average fan-out                             ; 2.89     ;
++---------------------------------------------+----------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                 ;
++---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                       ; Entity Name       ; Library Name ;
++---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------+-------------------+--------------+
+; |digital_clock                  ; 507 (348)           ; 122 (122)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 64   ; 0            ; 0          ; |digital_clock                            ; digital_clock     ; work         ;
+;    |clock_sum:sum_min1|         ; 143 (143)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |digital_clock|clock_sum:sum_min1         ; clock_sum         ; work         ;
+;    |functs_select_mux:hexdisp1| ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |digital_clock|functs_select_mux:hexdisp1 ; functs_select_mux ; work         ;
+;    |functs_select_mux:hexdisp3| ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |digital_clock|functs_select_mux:hexdisp3 ; functs_select_mux ; work         ;
+;    |functs_select_mux:hexdisp5| ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |digital_clock|functs_select_mux:hexdisp5 ; functs_select_mux ; work         ;
++---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------+-------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                 ;
++-----------------------------------------------------+--------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                  ; Free of Timing Hazards ;
++-----------------------------------------------------+--------------------------------------+------------------------+
+; clock_sum:sum_min1|min1[0]                          ; clock_sum:sum_min1|minute            ; yes                    ;
+; clock_sum:sum_min1|min1[1]                          ; clock_sum:sum_min1|minute            ; yes                    ;
+; clock_sum:sum_min1|min1[2]                          ; clock_sum:sum_min1|minute            ; yes                    ;
+; clock_sum:sum_min1|min1[3]                          ; clock_sum:sum_min1|minute            ; yes                    ;
+; clock_sum:sum_min1|min2[0]                          ; clock_sum:sum_min1|min2[31]          ; yes                    ;
+; clock_sum:sum_min1|min2[1]                          ; clock_sum:sum_min1|min2[31]          ; yes                    ;
+; clock_sum:sum_min1|min2[2]                          ; clock_sum:sum_min1|min2[31]          ; yes                    ;
+; clock_sum:sum_min1|min2[3]                          ; clock_sum:sum_min1|min2[31]          ; yes                    ;
+; clock_sum:sum_min1|hour1[0]                         ; clock_sum:sum_min1|hour              ; yes                    ;
+; clock_sum:sum_min1|hour1[1]                         ; clock_sum:sum_min1|hour              ; yes                    ;
+; clock_sum:sum_min1|hour1[2]                         ; clock_sum:sum_min1|hour              ; yes                    ;
+; clock_sum:sum_min1|hour1[3]                         ; clock_sum:sum_min1|hour              ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[0]                ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:detcnt[0]                ; clock_sum:sum_min1|\minute:detcnt[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[1]                ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[2]                ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[3]                ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min2in[0]                ; clock_sum:sum_min1|minute            ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[31]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[4]                ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[5]                ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[6]                ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[7]                ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[8]                ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[9]                ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[10]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[11]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[12]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[13]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[14]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[15]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[16]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[17]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[18]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[19]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[20]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[21]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[22]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[23]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[24]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[25]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[26]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[27]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[28]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[29]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min1in[30]               ; clock_sum:sum_min1|\minute:min1in[0] ; yes                    ;
+; clock_sum:sum_min1|\minute:min2in[1]                ; clock_sum:sum_min1|minute            ; yes                    ;
+; clock_sum:sum_min1|\minute:min2in[2]                ; clock_sum:sum_min1|minute            ; yes                    ;
+; clock_sum:sum_min1|\minute:min2in[3]                ; clock_sum:sum_min1|minute            ; yes                    ;
+; clock_sum:sum_min1|\hour:hour1in[0]                 ; clock_sum:sum_min1|hour              ; yes                    ;
+; clock_sum:sum_min1|\hour:detcnt[0]                  ; clock_sum:sum_min1|\hour:detcnt[0]   ; yes                    ;
+; clock_sum:sum_min1|\hour:hour1in[1]                 ; clock_sum:sum_min1|hour              ; yes                    ;
+; clock_sum:sum_min1|\hour:hour1in[2]                 ; clock_sum:sum_min1|hour              ; yes                    ;
+; clock_sum:sum_min1|\hour:hour1in[3]                 ; clock_sum:sum_min1|hour              ; yes                    ;
+; Number of user-specified and inferred latches = 54  ;                                      ;                        ;
++-----------------------------------------------------+--------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; sethour[0..31]                         ; Stuck at GND due to stuck port data_in ;
+; hour1_read2[0..3]                      ; Stuck at GND due to stuck port data_in ;
+; setmin[31]                             ; Merged with \min_count:setmincnt[31]   ;
+; sec1_read2[3]                          ; Stuck at GND due to stuck port data_in ;
+; min1_read2[3]                          ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 39 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 122   ;
+; Number of registers using Synchronous Clear  ; 26    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 122   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 90    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; min_signal                             ; 78      ;
+; hour_signal                            ; 5       ;
+; Total number of inverted registers = 2 ;         ;
++----------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |digital_clock|hour1_read2[0]                           ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |digital_clock|hour1_read1[1]                           ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |digital_clock|functs_switch:functions_switch|output[4] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |digital_clock|setmincnt                                ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |digital_clock|clock_sum:sum_min1|hour1                 ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |digital_clock|clock_sum:sum_min1|hour2                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+
+
++-------------------------------------------------+
+; Port Connectivity Checks: "clock_sum:sum_min1"  ;
++---------------+-------+----------+--------------+
+; Port          ; Type  ; Severity ; Details      ;
++---------------+-------+----------+--------------+
+; inputb[31..4] ; Input ; Info     ; Stuck at GND ;
+; inputd[31..4] ; Input ; Info     ; Stuck at GND ;
+; inpute[31..4] ; Input ; Info     ; Stuck at GND ;
+; inputf[31..4] ; Input ; Info     ; Stuck at GND ;
++---------------+-------+----------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "functs_select_mux:hexdisp6"                                                                  ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; a             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; c             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; d             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; e             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; output[31..4] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "functs_select_mux:hexdisp5"                                                                  ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; a             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; c             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; d             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; e             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; output[31..4] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "functs_select_mux:hexdisp4"                                                                  ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; a             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; c             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; d             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; e             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; output[31..4] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "functs_select_mux:hexdisp3"                                                                  ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; a             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; c             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; d             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; e             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; output[31..4] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "functs_select_mux:hexdisp2"                                                                  ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; a             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; c             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; d             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; e             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; f[31..4]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; output[31..4] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "functs_select_mux:hexdisp1"                                                                  ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; a             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; c             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; d             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; e             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; f[31..4]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; output[31..4] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 64                          ;
+; cycloneiii_ff         ; 122                         ;
+;     CLR               ; 6                           ;
+;     CLR SCLR          ; 26                          ;
+;     ENA CLR           ; 90                          ;
+; cycloneiii_lcell_comb ; 515                         ;
+;     arith             ; 87                          ;
+;         2 data inputs ; 83                          ;
+;         3 data inputs ; 4                           ;
+;     normal            ; 428                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 12                          ;
+;         2 data inputs ; 7                           ;
+;         3 data inputs ; 226                         ;
+;         4 data inputs ; 181                         ;
+;                       ;                             ;
+; Max LUT depth         ; 7.70                        ;
+; Average LUT depth     ; 3.72                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+    Info: Processing started: Wed Aug 30 17:35:48 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off digital_clock -c digital_clock
+Info (125069): Default assignment values were changed in the current version of the Quartus Prime software -- changes to default assignments values are contained in file c:/intelfpga_lite/22.1std/quartus/bin64/assignment_defaults.qdf
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file int_sum.vhd
+    Info (12022): Found design unit 1: clock_sum-clock File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 13
+    Info (12023): Found entity 1: clock_sum File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 6
+Warning (12125): Using design file digital_clock.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: digital_clock-clock File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 16
+    Info (12023): Found entity 1: digital_clock File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 6
+Info (12127): Elaborating entity "digital_clock" for the top level hierarchy
+Warning (10540): VHDL Signal Declaration warning at digital_clock.vhd(9): used explicit default value for signal "LEDR" because signal was never assigned a value File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 9
+Warning (10540): VHDL Signal Declaration warning at digital_clock.vhd(38): used explicit default value for signal "zero" because signal was never assigned a value File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 38
+Warning (10540): VHDL Signal Declaration warning at digital_clock.vhd(39): used explicit default value for signal "one" because signal was never assigned a value File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 39
+Warning (10540): VHDL Signal Declaration warning at digital_clock.vhd(40): used explicit default value for signal "two" because signal was never assigned a value File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 40
+Warning (10540): VHDL Signal Declaration warning at digital_clock.vhd(41): used explicit default value for signal "three" because signal was never assigned a value File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 41
+Warning (10540): VHDL Signal Declaration warning at digital_clock.vhd(42): used explicit default value for signal "four" because signal was never assigned a value File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 42
+Warning (10540): VHDL Signal Declaration warning at digital_clock.vhd(43): used explicit default value for signal "five" because signal was never assigned a value File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 43
+Warning (10540): VHDL Signal Declaration warning at digital_clock.vhd(44): used explicit default value for signal "six" because signal was never assigned a value File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 44
+Warning (10540): VHDL Signal Declaration warning at digital_clock.vhd(45): used explicit default value for signal "seven" because signal was never assigned a value File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 45
+Warning (10540): VHDL Signal Declaration warning at digital_clock.vhd(46): used explicit default value for signal "eight" because signal was never assigned a value File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 46
+Warning (10540): VHDL Signal Declaration warning at digital_clock.vhd(47): used explicit default value for signal "nine" because signal was never assigned a value File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 47
+Warning (10036): Verilog HDL or VHDL warning at digital_clock.vhd(191): object "sethourcnt" assigned a value but never read File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 191
+Warning (12125): Using design file functs_select_mux.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: functs_select_mux-clock File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/functs_select_mux.vhd Line: 15
+    Info (12023): Found entity 1: functs_select_mux File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/functs_select_mux.vhd Line: 6
+Info (12128): Elaborating entity "functs_select_mux" for hierarchy "functs_select_mux:hexdisp1" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 104
+Warning (10492): VHDL Process Statement warning at functs_select_mux.vhd(21): signal "a" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/functs_select_mux.vhd Line: 21
+Warning (10492): VHDL Process Statement warning at functs_select_mux.vhd(23): signal "b" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/functs_select_mux.vhd Line: 23
+Warning (10492): VHDL Process Statement warning at functs_select_mux.vhd(25): signal "d" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/functs_select_mux.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at functs_select_mux.vhd(27): signal "e" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/functs_select_mux.vhd Line: 27
+Warning (10492): VHDL Process Statement warning at functs_select_mux.vhd(29): signal "f" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/functs_select_mux.vhd Line: 29
+Warning (12125): Using design file functs_switch.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: functs_switch-clock File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/functs_switch.vhd Line: 14
+    Info (12023): Found entity 1: functs_switch File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/functs_switch.vhd Line: 6
+Info (12128): Elaborating entity "functs_switch" for hierarchy "functs_switch:functions_switch" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 112
+Warning (10812): VHDL warning at functs_switch.vhd(17): sensitivity list already contains sw File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/functs_switch.vhd Line: 17
+Info (12128): Elaborating entity "clock_sum" for hierarchy "clock_sum:sum_min1" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 114
+Warning (10631): VHDL Process Statement warning at int_sum.vhd(46): inferring latch(es) for signal or variable "min1in", which holds its previous value in one or more paths through the process File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Warning (10631): VHDL Process Statement warning at int_sum.vhd(46): inferring latch(es) for signal or variable "min2in", which holds its previous value in one or more paths through the process File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Warning (10631): VHDL Process Statement warning at int_sum.vhd(46): inferring latch(es) for signal or variable "detcnt", which holds its previous value in one or more paths through the process File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Warning (10631): VHDL Process Statement warning at int_sum.vhd(46): inferring latch(es) for signal or variable "min1", which holds its previous value in one or more paths through the process File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Warning (10631): VHDL Process Statement warning at int_sum.vhd(46): inferring latch(es) for signal or variable "min2", which holds its previous value in one or more paths through the process File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Warning (10631): VHDL Process Statement warning at int_sum.vhd(67): inferring latch(es) for signal or variable "hour1in", which holds its previous value in one or more paths through the process File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Warning (10631): VHDL Process Statement warning at int_sum.vhd(67): inferring latch(es) for signal or variable "hour2in", which holds its previous value in one or more paths through the process File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Warning (10631): VHDL Process Statement warning at int_sum.vhd(67): inferring latch(es) for signal or variable "detcnt", which holds its previous value in one or more paths through the process File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Warning (10631): VHDL Process Statement warning at int_sum.vhd(67): inferring latch(es) for signal or variable "hour1", which holds its previous value in one or more paths through the process File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Warning (10631): VHDL Process Statement warning at int_sum.vhd(67): inferring latch(es) for signal or variable "hour2", which holds its previous value in one or more paths through the process File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[0]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[1]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[2]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[3]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[4]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[5]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[6]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[7]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[8]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[9]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[10]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[11]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[12]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[13]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[14]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[15]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[16]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[17]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[18]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[19]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[20]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[21]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[22]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[23]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[24]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[25]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[26]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[27]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[28]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[29]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[30]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour2[31]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[0]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[1]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[2]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[3]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[4]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[5]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[6]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[7]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[8]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[9]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[10]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[11]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[12]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[13]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[14]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[15]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[16]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[17]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[18]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[19]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[20]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[21]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[22]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[23]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[24]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[25]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[26]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[27]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[28]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[29]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[30]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour1[31]" at int_sum.vhd(67) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+Info (10041): Inferred latch for "hour:detcnt[0]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[1]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[2]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[3]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[4]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[5]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[6]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[7]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[8]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[9]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[10]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[11]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[12]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[13]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[14]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[15]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[16]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[17]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[18]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[19]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[20]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[21]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[22]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[23]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[24]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[25]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[26]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[27]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[28]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[29]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[30]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:detcnt[31]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[0]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[1]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[2]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[3]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[4]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[5]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[6]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[7]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[8]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[9]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[10]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[11]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[12]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[13]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[14]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[15]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[16]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[17]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[18]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[19]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[20]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[21]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[22]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[23]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[24]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[25]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[26]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[27]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[28]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[29]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[30]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour2in[31]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[0]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[1]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[2]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[3]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[4]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[5]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[6]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[7]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[8]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[9]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[10]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[11]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[12]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[13]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[14]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[15]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[16]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[17]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[18]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[19]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[20]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[21]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[22]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[23]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[24]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[25]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[26]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[27]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[28]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[29]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[30]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "hour:hour1in[31]" at int_sum.vhd(70) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 70
+Info (10041): Inferred latch for "min2[0]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[1]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[2]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[3]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[4]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[5]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[6]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[7]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[8]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[9]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[10]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[11]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[12]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[13]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[14]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[15]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[16]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[17]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[18]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[19]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[20]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[21]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[22]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[23]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[24]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[25]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[26]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[27]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[28]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[29]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[30]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min2[31]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[0]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[1]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[2]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[3]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[4]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[5]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[6]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[7]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[8]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[9]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[10]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[11]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[12]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[13]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[14]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[15]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[16]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[17]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[18]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[19]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[20]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[21]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[22]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[23]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[24]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[25]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[26]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[27]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[28]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[29]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[30]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "min1[31]" at int_sum.vhd(46) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+Info (10041): Inferred latch for "minute:detcnt[0]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[1]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[2]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[3]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[4]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[5]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[6]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[7]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[8]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[9]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[10]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[11]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[12]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[13]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[14]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[15]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[16]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[17]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[18]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[19]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[20]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[21]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[22]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[23]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[24]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[25]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[26]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[27]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[28]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[29]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[30]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:detcnt[31]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[0]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[1]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[2]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[3]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[4]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[5]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[6]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[7]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[8]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[9]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[10]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[11]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[12]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[13]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[14]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[15]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[16]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[17]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[18]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[19]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[20]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[21]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[22]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[23]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[24]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[25]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[26]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[27]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[28]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[29]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[30]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min2in[31]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[0]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[1]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[2]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[3]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[4]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[5]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[6]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[7]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[8]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[9]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[10]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[11]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[12]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[13]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[14]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[15]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[16]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[17]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[18]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[19]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[20]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[21]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[22]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[23]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[24]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[25]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[26]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[27]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[28]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[29]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[30]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Info (10041): Inferred latch for "minute:min1in[31]" at int_sum.vhd(49) File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 49
+Warning (13012): Latch clock_sum:sum_min1|min1[0] has unsafe behavior File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw1 File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 7
+Warning (13012): Latch clock_sum:sum_min1|min1[1] has unsafe behavior File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw1 File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 7
+Warning (13012): Latch clock_sum:sum_min1|min1[2] has unsafe behavior File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw1 File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 7
+Warning (13012): Latch clock_sum:sum_min1|min1[3] has unsafe behavior File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw1 File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 7
+Warning (13012): Latch clock_sum:sum_min1|min2[0] has unsafe behavior File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:min2in[0]
+Warning (13012): Latch clock_sum:sum_min1|min2[1] has unsafe behavior File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:min2in[1]
+Warning (13012): Latch clock_sum:sum_min1|min2[2] has unsafe behavior File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:min2in[2]
+Warning (13012): Latch clock_sum:sum_min1|min2[3] has unsafe behavior File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:min2in[3]
+Warning (13012): Latch clock_sum:sum_min1|hour1[0] has unsafe behavior File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw1 File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 7
+Warning (13012): Latch clock_sum:sum_min1|hour1[1] has unsafe behavior File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw1 File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 7
+Warning (13012): Latch clock_sum:sum_min1|hour1[2] has unsafe behavior File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw1 File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 7
+Warning (13012): Latch clock_sum:sum_min1|hour1[3] has unsafe behavior File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/int_sum.vhd Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw1 File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 7
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:detcnt[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\minute:min1in[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\minute:detcnt[0]
+Warning (13012): Latch clock_sum:sum_min1|\hour:detcnt[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clock_sum:sum_min1|\hour:detcnt[0]
+Info (13000): Registers with preset signals will power-up high File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 66
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "setmin[0]" is converted into an equivalent circuit using register "setmin[0]~_emulated" and latch "setmin[0]~1" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[1]" is converted into an equivalent circuit using register "setmin[1]~_emulated" and latch "setmin[1]~5" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[2]" is converted into an equivalent circuit using register "setmin[2]~_emulated" and latch "setmin[2]~9" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[3]" is converted into an equivalent circuit using register "setmin[3]~_emulated" and latch "setmin[3]~13" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "\min_count:setmincnt[31]" is converted into an equivalent circuit using register "\min_count:setmincnt[31]~_emulated" and latch "\min_count:setmincnt[31]~1"
+    Warning (13310): Register "setmin[30]" is converted into an equivalent circuit using register "setmin[30]~_emulated" and latch "setmin[30]~17" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[29]" is converted into an equivalent circuit using register "setmin[29]~_emulated" and latch "setmin[29]~21" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[28]" is converted into an equivalent circuit using register "setmin[28]~_emulated" and latch "setmin[28]~25" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[27]" is converted into an equivalent circuit using register "setmin[27]~_emulated" and latch "setmin[27]~29" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[26]" is converted into an equivalent circuit using register "setmin[26]~_emulated" and latch "setmin[26]~33" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[25]" is converted into an equivalent circuit using register "setmin[25]~_emulated" and latch "setmin[25]~37" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[24]" is converted into an equivalent circuit using register "setmin[24]~_emulated" and latch "setmin[24]~41" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[23]" is converted into an equivalent circuit using register "setmin[23]~_emulated" and latch "setmin[23]~45" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[22]" is converted into an equivalent circuit using register "setmin[22]~_emulated" and latch "setmin[22]~49" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[21]" is converted into an equivalent circuit using register "setmin[21]~_emulated" and latch "setmin[21]~53" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[20]" is converted into an equivalent circuit using register "setmin[20]~_emulated" and latch "setmin[20]~57" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[19]" is converted into an equivalent circuit using register "setmin[19]~_emulated" and latch "setmin[19]~61" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[18]" is converted into an equivalent circuit using register "setmin[18]~_emulated" and latch "setmin[18]~65" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[17]" is converted into an equivalent circuit using register "setmin[17]~_emulated" and latch "setmin[17]~69" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[16]" is converted into an equivalent circuit using register "setmin[16]~_emulated" and latch "setmin[16]~73" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[15]" is converted into an equivalent circuit using register "setmin[15]~_emulated" and latch "setmin[15]~77" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[14]" is converted into an equivalent circuit using register "setmin[14]~_emulated" and latch "setmin[14]~81" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[13]" is converted into an equivalent circuit using register "setmin[13]~_emulated" and latch "setmin[13]~85" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[12]" is converted into an equivalent circuit using register "setmin[12]~_emulated" and latch "setmin[12]~89" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[11]" is converted into an equivalent circuit using register "setmin[11]~_emulated" and latch "setmin[11]~93" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[10]" is converted into an equivalent circuit using register "setmin[10]~_emulated" and latch "setmin[10]~97" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[9]" is converted into an equivalent circuit using register "setmin[9]~_emulated" and latch "setmin[9]~101" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[8]" is converted into an equivalent circuit using register "setmin[8]~_emulated" and latch "setmin[8]~105" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[7]" is converted into an equivalent circuit using register "setmin[7]~_emulated" and latch "setmin[7]~109" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[6]" is converted into an equivalent circuit using register "setmin[6]~_emulated" and latch "setmin[6]~113" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[5]" is converted into an equivalent circuit using register "setmin[5]~_emulated" and latch "setmin[5]~117" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "setmin[4]" is converted into an equivalent circuit using register "setmin[4]~_emulated" and latch "setmin[4]~121" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 165
+    Warning (13310): Register "\min_count:setmincnt[0]" is converted into an equivalent circuit using register "\min_count:setmincnt[0]~_emulated" and latch "\min_count:setmincnt[0]~1"
+    Warning (13310): Register "\min_count:setmincnt[1]" is converted into an equivalent circuit using register "\min_count:setmincnt[1]~_emulated" and latch "\min_count:setmincnt[1]~1"
+    Warning (13310): Register "\min_count:setmincnt[2]" is converted into an equivalent circuit using register "\min_count:setmincnt[2]~_emulated" and latch "\min_count:setmincnt[2]~1"
+    Warning (13310): Register "\min_count:setmincnt[3]" is converted into an equivalent circuit using register "\min_count:setmincnt[3]~_emulated" and latch "\min_count:setmincnt[3]~1"
+    Warning (13310): Register "\min_count:setmincnt[30]" is converted into an equivalent circuit using register "\min_count:setmincnt[30]~_emulated" and latch "\min_count:setmincnt[30]~1"
+    Warning (13310): Register "\min_count:setmincnt[29]" is converted into an equivalent circuit using register "\min_count:setmincnt[29]~_emulated" and latch "\min_count:setmincnt[29]~1"
+    Warning (13310): Register "\min_count:setmincnt[28]" is converted into an equivalent circuit using register "\min_count:setmincnt[28]~_emulated" and latch "\min_count:setmincnt[28]~1"
+    Warning (13310): Register "\min_count:setmincnt[27]" is converted into an equivalent circuit using register "\min_count:setmincnt[27]~_emulated" and latch "\min_count:setmincnt[27]~1"
+    Warning (13310): Register "\min_count:setmincnt[26]" is converted into an equivalent circuit using register "\min_count:setmincnt[26]~_emulated" and latch "\min_count:setmincnt[26]~1"
+    Warning (13310): Register "\min_count:setmincnt[25]" is converted into an equivalent circuit using register "\min_count:setmincnt[25]~_emulated" and latch "\min_count:setmincnt[25]~1"
+    Warning (13310): Register "\min_count:setmincnt[24]" is converted into an equivalent circuit using register "\min_count:setmincnt[24]~_emulated" and latch "\min_count:setmincnt[24]~1"
+    Warning (13310): Register "\min_count:setmincnt[23]" is converted into an equivalent circuit using register "\min_count:setmincnt[23]~_emulated" and latch "\min_count:setmincnt[23]~1"
+    Warning (13310): Register "\min_count:setmincnt[22]" is converted into an equivalent circuit using register "\min_count:setmincnt[22]~_emulated" and latch "\min_count:setmincnt[22]~1"
+    Warning (13310): Register "\min_count:setmincnt[21]" is converted into an equivalent circuit using register "\min_count:setmincnt[21]~_emulated" and latch "\min_count:setmincnt[21]~1"
+    Warning (13310): Register "\min_count:setmincnt[20]" is converted into an equivalent circuit using register "\min_count:setmincnt[20]~_emulated" and latch "\min_count:setmincnt[20]~1"
+    Warning (13310): Register "\min_count:setmincnt[19]" is converted into an equivalent circuit using register "\min_count:setmincnt[19]~_emulated" and latch "\min_count:setmincnt[19]~1"
+    Warning (13310): Register "\min_count:setmincnt[18]" is converted into an equivalent circuit using register "\min_count:setmincnt[18]~_emulated" and latch "\min_count:setmincnt[18]~1"
+    Warning (13310): Register "\min_count:setmincnt[17]" is converted into an equivalent circuit using register "\min_count:setmincnt[17]~_emulated" and latch "\min_count:setmincnt[17]~1"
+    Warning (13310): Register "\min_count:setmincnt[16]" is converted into an equivalent circuit using register "\min_count:setmincnt[16]~_emulated" and latch "\min_count:setmincnt[16]~1"
+    Warning (13310): Register "\min_count:setmincnt[15]" is converted into an equivalent circuit using register "\min_count:setmincnt[15]~_emulated" and latch "\min_count:setmincnt[15]~1"
+    Warning (13310): Register "\min_count:setmincnt[14]" is converted into an equivalent circuit using register "\min_count:setmincnt[14]~_emulated" and latch "\min_count:setmincnt[14]~1"
+    Warning (13310): Register "\min_count:setmincnt[13]" is converted into an equivalent circuit using register "\min_count:setmincnt[13]~_emulated" and latch "\min_count:setmincnt[13]~1"
+    Warning (13310): Register "\min_count:setmincnt[12]" is converted into an equivalent circuit using register "\min_count:setmincnt[12]~_emulated" and latch "\min_count:setmincnt[12]~1"
+    Warning (13310): Register "\min_count:setmincnt[11]" is converted into an equivalent circuit using register "\min_count:setmincnt[11]~_emulated" and latch "\min_count:setmincnt[11]~1"
+    Warning (13310): Register "\min_count:setmincnt[10]" is converted into an equivalent circuit using register "\min_count:setmincnt[10]~_emulated" and latch "\min_count:setmincnt[10]~1"
+    Warning (13310): Register "\min_count:setmincnt[9]" is converted into an equivalent circuit using register "\min_count:setmincnt[9]~_emulated" and latch "\min_count:setmincnt[9]~1"
+    Warning (13310): Register "\min_count:setmincnt[8]" is converted into an equivalent circuit using register "\min_count:setmincnt[8]~_emulated" and latch "\min_count:setmincnt[8]~1"
+    Warning (13310): Register "\min_count:setmincnt[7]" is converted into an equivalent circuit using register "\min_count:setmincnt[7]~_emulated" and latch "\min_count:setmincnt[7]~1"
+    Warning (13310): Register "\min_count:setmincnt[6]" is converted into an equivalent circuit using register "\min_count:setmincnt[6]~_emulated" and latch "\min_count:setmincnt[6]~1"
+    Warning (13310): Register "\min_count:setmincnt[5]" is converted into an equivalent circuit using register "\min_count:setmincnt[5]~_emulated" and latch "\min_count:setmincnt[5]~1"
+    Warning (13310): Register "\min_count:setmincnt[4]" is converted into an equivalent circuit using register "\min_count:setmincnt[4]~_emulated" and latch "\min_count:setmincnt[4]~1"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX5[0]" is stuck at GND File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 8
+    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 8
+    Warning (13410): Pin "HEX5[2]" is stuck at GND File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 8
+    Warning (13410): Pin "HEX5[3]" is stuck at GND File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 8
+    Warning (13410): Pin "HEX5[4]" is stuck at GND File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 8
+    Warning (13410): Pin "HEX5[5]" is stuck at GND File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 8
+    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 8
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 9
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 9
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 9
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 9
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 9
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 9
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 9
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 9
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 9
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 9
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "btn2" File: C:/Users/EliteBook/Documents/Quartus/Digital Clock/digital_clock.vhd Line: 7
+Info (21057): Implemented 634 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 58 output pins
+    Info (21061): Implemented 570 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 208 warnings
+    Info: Peak virtual memory: 4808 megabytes
+    Info: Processing ended: Wed Aug 30 17:36:09 2023
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:35
+
+

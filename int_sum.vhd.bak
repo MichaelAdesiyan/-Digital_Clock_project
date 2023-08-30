@@ -1,0 +1,22 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+
+entity int_sum is
+port( inputa,inputb:in integer:=0;
+		output:out integer
+		);
+		
+
+end entity int_sum;
+
+architecture clock of int_sum is
+	
+begin
+	process(inputa,inputb)
+	begin
+		output<=inputa + inputb;
+	end process;
+	
+end architecture clock;

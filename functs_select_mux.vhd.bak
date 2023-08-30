@@ -1,0 +1,22 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+
+entity digital_clock is
+port( clk,min_set,hour_set,rst,timer,alarm,stopwatch			: in std_logic;
+		HEX0, HEX1, HEX2, HEX3, HEX4, HEX5 : out std_logic_vector(6 downto 0);
+		LEDR: out std_logic_vector(9 downto 0):="0000000000";
+		sec_blink,rst_LED,timer_LED,alarm_LED,stopwatch_LED: out std_logic
+		);
+		
+
+end entity digital_clock;
+
+architecture clock of digital_clock is
+	
+
+begin
+	
+	
+end architecture clock;

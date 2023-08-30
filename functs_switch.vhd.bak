@@ -1,0 +1,34 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+
+entity functs_switch is
+port( sw:in std_logic_vector(2 downto 0);
+		output:out integer
+		);
+		
+
+end entity functs_switch;
+
+architecture clock of functs_switch is
+	
+begin
+	process(sel)
+	begin
+		if sel="111" then
+			output<=a;
+		elsif sel="110" then
+			output<=b;
+		elsif sel="101" then
+			output<=c;
+		elsif sel="100" then
+			output<=d;
+		elsif sel="100" then
+			output<=e;
+		else
+			output<=f;
+		end if;
+	end process;
+	
+end architecture clock;
